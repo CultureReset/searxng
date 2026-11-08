@@ -1,0 +1,11 @@
+# component: @NAME@
+name: ai-stack-searxng
+services:
+  searxng:
+    image: searxng/searxng@sha256:3619192d55f19eaec4b01892bdf10f80c67e8592fafd14b26ca504e52229210f
+    restart: unless-stopped
+    environment:
+      SEARXNG_SECRET: ${SEARXNG_SECRET:?set in searxng.env}
+    ports: ["127.0.0.1:8888:8080"]
+    volumes: ["@CONF@:/etc/searxng", "searxng-cache:/var/cache/searxng"]
+volumes: {searxng-cache: {}}

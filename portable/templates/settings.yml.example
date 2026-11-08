@@ -1,0 +1,6 @@
+use_default_settings: true
+server:
+  bind_address: "0.0.0.0"  # inside container only; host publish is 127.0.0.1
+  limiter: false
+search:
+  formats: [html, json]
