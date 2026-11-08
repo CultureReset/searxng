@@ -73,7 +73,7 @@ verify(){
     wd=$(sed -n 's/^WorkingDirectory=//p' "$u"); [ -z "$wd" ] || [ -d "$wd" ] || { log "WorkingDirectory missing: $wd"; bad=1; }
     grep -Eq '0\.0\.0\.0|--host +::' "$u" && { log "non-loopback bind in $u"; bad=1; }
   done
-  for p in ${VERIFY_PATHS:-}; do p=${p//@SRC@/$SRC}; p=${p//@APPDIR@/$APPDIR}; [ -e "$p" ] || { log "missing $p"; bad=1; }; done
+  for p in ${VERIFY_PATHS:-}; do p=${p//@SRC@/$SRC}; p=${p//@APPDIR@/$APPDIR}; p=${p//@CONF@/$CONF}; [ -e "$p" ] || { log "missing $p"; bad=1; }; done
   for k in ${SECRET_KEYS:-}; do grep -Eq "^$k=.+" "$CONF/$NAME.env" 2>/dev/null || { log "secret $k not set in $CONF/$NAME.env (owner must provision)"; bad=1; }; done
   [ -n "${HEALTH:-}" ] && log "health (not called): $HEALTH"
   [ $bad = 0 ] && log "verify OK" || { log "verify FAILED"; return 6; }
