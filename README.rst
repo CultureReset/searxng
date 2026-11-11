@@ -1,3 +1,14 @@
+CultureReset fork of `searxng/searxng <https://github.com/searxng/searxng>`__. A free, privacy-respecting metasearch engine that aggregates results from many search services.
+
+- **Why it is here:** Source reference for the private search engine NODE uses.
+- **Does anything run from it:** No. NODE runs the official image, not a build of this fork.
+- **Changes:** The default branch has no CultureReset commits; it is upstream as of the last sync.
+- **License:** AGPL-3.0, from upstream. For updates and issues, use `upstream <https://github.com/searxng/searxng>`__.
+
+The upstream README follows unchanged.
+
+----
+
 .. SPDX-License-Identifier: AGPL-3.0-or-later
 
 .. _metasearch engine: https://en.wikipedia.org/wiki/Metasearch_engine
